@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Post-It Workbook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        h3 { color: Black;}
+
+        body { background-color: WhiteSmoke;}
+
+        div {
+            background-color: Gold;
+            width: 200px;
+            height: 200px;
+            border: 2px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        textarea {
+            background: rgba(0, 0, 0, 0.1);
+            width: 170px;
+            height: 140px;
+            border: 5px Solid GoldenRod;
+            padding: 5px;
+            margin: 5px;
+            color: Black;
+            font-family: Tahoma, sans-serif;
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 align="center">Workbook Post-it Project</h3>
+    <button id="newBtn">+</button>
+
+    <div>
+        <button id="exitBtn">X</button>
+        <button id="redBtn">R</button>
+        <button id="greenBtn">G</button>
+        <button id="blueBtn">B</button>
+        <button id="goldBtn">Y</button>
+        <textarea id="resizable" rows="5" cols="20" placeholder="Input text here"></textarea>
+    </div>
+</body>
+
+<script>
+    $("#newBtn").click(function () { $("div").clone(); });
+    $("#exitBtn").click(function () { $("div").remove(); });
+
+    $("#redBtn").click(function () { $("div").css("background-color", "Red"); });
+    $("#greenBtn").click(function () { $("div").css("background-color", "Green"); });
+    $("#blueBtn").click(function () { $("div").css("background-color", "DeepSkyBlue"); });
+    $("#goldBtn").click(function () { $("div").css("background-color", "Gold"); });
+
+    $(function () {
+        $("div").draggable();
+        $("div").resizable({ alsoResize: "textarea", minHeight: 150, minWidth: 200, handles: "se" });
+    });
+</script>
+</html>
